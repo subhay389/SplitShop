@@ -6,7 +6,7 @@ angular.module('app.controllers', [])
     };
 
     $scope.login = function () {
-      $cordovaFacebook.login(["public_profile", "email", "user_friends"])
+      $cordovaFacebook.login(["public_profile"])
 	    .then(function(success) {
 	      // { id: "634565435",
 	      //   lastName: "bob"
