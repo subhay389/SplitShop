@@ -1,0 +1,35 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "803479469762275",
+            "APP_NAME": "SplitShop",
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        }
+    },
+    "dependent_plugins": {}
+}
