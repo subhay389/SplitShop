@@ -9,6 +9,7 @@
 ## Using This Project
 * `git clone https://github.com/subhay389/SplitShop.git`
 * `ionic state restore`
+* `ionic run android` (The project is developed only for Android devices)
 
 ## Issues
 #### Installing Plugin for Android
