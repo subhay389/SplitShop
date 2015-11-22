@@ -5,14 +5,17 @@ angular.module('app.controllers', [])
       alert("UserInfo: " + JSON.stringify(userData));
     };
 
-    $scope.doLogin = function () {
-      $cordovaFacebook.login(["public_profile"],
-        fbLoginSuccess,
-        function (error) {
-          alert("" + error)
-        }
-      );
-    };
+    $scope.login = function () {
+      $cordovaFacebook.login(["public_profile"])
+	    .then(function(success) {
+	      // { id: "634565435",
+	      //   lastName: "bob"
+	      //   ...
+	      // }
+	    }, function (error) {
+	      // error
+	    });
+	}
 
 })
 

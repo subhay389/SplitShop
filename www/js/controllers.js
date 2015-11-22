@@ -1,13 +1,15 @@
 angular.module('app.controllers', [])
   
-.controller('loginCtrl', function($scope, $cordovaFacebook) {
+.controller('loginCtrl', function($scope, $state, $cordovaFacebook) {
 	var fbLoginSuccess = function (userData) {
       alert("UserInfo: " + JSON.stringify(userData));
     };
 
     $scope.login = function () {
-      $cordovaFacebook.login(["public_profile"])
+      $cordovaFacebook.login(["public_profile", "email"])
 	    .then(function(success) {
+	    	console.log(success);
+	    	$state.go("tabsController.dashboard");
 	      // { id: "634565435",
 	      //   lastName: "bob"
 	      //   ...
