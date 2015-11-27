@@ -1,0 +1,27 @@
+{
+	"results": [
+		{
+			"name": "demo1",
+			"variety": [
+				{
+					"id": "0",
+					"name": [
+						"var1"
+					]
+				},
+				{
+					"id": "1",
+					"name": ["var2"]
+				}
+			]
+		},
+		{
+			"name": "demo2",
+			"variety": [
+				{
+					"id": "0"
+				}
+			]
+		}
+	]
+}

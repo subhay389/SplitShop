@@ -51,9 +51,6 @@ angular.module('app.services', [])
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
-	var currentUser = {
-		"id": null
-	};
 
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
@@ -81,8 +78,6 @@ angular.module('app.services', [])
             				"fb_id" : _fbUserInfo.id,
             				"photo": _fbUserInfo.picture.data.url
             			};
-            			console.log("UserData", UserData);
-
             			Parse.getUser(UserData.fb_id).then(function(result){
             				if (result.data.results.length != 0) {
             					console.log("User exists in the database")
@@ -101,28 +96,30 @@ angular.module('app.services', [])
         };
 
         var currentUser = function() {
-        	$cordovaFacebook.getLoginStatus().then(function(success) {
-        	console.log("getLoginStatus", success);
-        	var accessToken = success.authResponse.accessToken;
-            var userID = success.authResponse.userID;
-            var expiresIn = success.authResponse.expiresIn;
+        	return $cordovaFacebook.getLoginStatus().then(function(success) {
+	        	console.log("getLoginStatus", success);
+	        	var accessToken = success.authResponse.accessToken;
+	            var userID = success.authResponse.userID;
+	            var expiresIn = success.authResponse.expiresIn;
 
-            var expDate = new Date(
-                new Date().getTime() + expiresIn * 1000
-            ).toISOString();
-				
+	            var expDate = new Date(
+	                new Date().getTime() + expiresIn * 1000
+	            ).toISOString();
+					
 				var fbValues = "&fields=id,name,picture,email";
-            var fbPermission = ["public_profile", "email"];
+	            var fbPermission = ["public_profile", "email"];
 
-            $cordovaFacebook.api("me?access_token=" + accessToken + fbValues, fbPermission)
-        		.then(function (_fbUserInfo) {
-        			currentUser.objectId = _fbUserInfo.id;
-        		})
+	            return $cordovaFacebook.api("me?access_token=" + accessToken + fbValues, fbPermission)
+	        		.then(function (_fbUserInfo) {
+	        			var UserId = _fbUserInfo.id;
+	        			console.log(currentUser.objectId);
+	        			return Parse.getUser(UserId).then(function(success) {
+			    			console.log("currentUser", success);
+			    			return success;
+			    		});
+	        	})
         	})
-    		return Parse.getUser(currentUser.objectId).then(function(success) {
-    			console.log("getUser", success);
-    			return success;
-    		});
+    		
 
     	};
 

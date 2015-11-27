@@ -10,17 +10,9 @@ angular.module('app.controllers', [])
     $scope.login = function () {
       FacebookAuth.login().then(function(success) {
 	    	console.log(success);
-	    	
-	    	// .then(function(data){
-	    	// 	console.log("currentUser", data);
-	    	// })
 	    	$state.go("tabsController.dashboard");
-	      // { id: "634565435",
-	      //   lastName: "bob"
-	      //   ...
-	      // }
 	    }, function (error) {
-	      // error
+	    	console.log(error);
 	    });
 	}
 
