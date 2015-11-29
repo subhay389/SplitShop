@@ -39,11 +39,19 @@ angular.module('app.services', [])
     				console.log(_response);
     				return _response;
     			});
-    	},
+    	}
     };
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
+	//var baseURL = 'http://webservices.amazon.com/onca/xml?' +
+	//		'Service=AWSECommerceService' +
+	//		'&Operation=ItemLookup' +
+	//		'&ResponseGroup=Large' +
+	//		'&SearchIndex=All' +
+	//		'&IdType=UPC';
+	//var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
+	//							'&AssociateTag=[Your_AssociateTag]'
 
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
@@ -73,7 +81,7 @@ angular.module('app.services', [])
             			};
             			Parse.getUser(UserData.fb_id).then(function(result){
             				if (result.data.results.length != 0) {
-            					console.log("User exists in the database")
+            					console.log("User exists in the database");
             					return _fbUserInfo;
             				} else {
             					
@@ -119,6 +127,25 @@ angular.module('app.services', [])
 	return {
 		login: login,
 		currentUser: currentUser
-	}
+	};
+
+	//amazon = require('amazon-product-api');
+	//var client = amazon.createClient({
+	//	awsId: 'AKIAJUA2Y3JXDKXJLR5A',
+	//	awsSecret: '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'
+	//});
+    //
+	//var	getStuff = function(_id) {
+	//		var settings = {
+	//			method: 'GET',
+	//			url: baseURL + '&ItemID=' + _id + amazonCredentials,
+	//		};
+	//		return $http(settings)
+	//				.then(function(response) {
+	//					console.log('getStuff', response);
+	//					return response.data.results;
+	//				})
+	//	}
+
 });
 

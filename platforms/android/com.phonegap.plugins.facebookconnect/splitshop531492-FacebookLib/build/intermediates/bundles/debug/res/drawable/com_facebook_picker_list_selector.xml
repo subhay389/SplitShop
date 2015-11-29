@@ -25,4 +25,4 @@
     <item android:state_focused="true"                                                             android:drawable="@drawable/com_facebook_picker_list_focused" />
 
 </selector>
-<!-- From: file:/Users/rockndo/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_picker_list_selector.xml -->
+<!-- From: file:/Users/subhay/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_picker_list_selector.xml -->

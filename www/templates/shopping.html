@@ -3,10 +3,10 @@
         <form style="" class="list">
             <label style="" class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input placeholder="Item search " type="search">
+                <input placeholder="Item search " type="search" ng-model = "itemName">
             </label>
         </form>
-        <button style="" class="button button-stable button-block ">Search</button>
+        <button style="" class="button button-stable button-block " ng-click = search(itemName)>Search</button>
         <ion-list style="">
             <ion-item style="" href="#/itemdetail" menu-close="">Item 1</ion-item>
             <ion-item style="" href="#/itemdetail" menu-close="">Item 2</ion-item>

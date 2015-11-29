@@ -68,8 +68,10 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('shoppingCtrl', function($scope) {
-
+.controller('shoppingCtrl', function($scope, FacebookAuth) {
+	//FacebookAuth.getStuff('635753490879').then(function(_response){})
+	//$scope.item = _response;
+	//console.log(_response);
 })
    
 .controller('itemDetailCtrl', function($scope) {
