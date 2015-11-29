@@ -48,12 +48,12 @@ angular.module('app.routes', [])
     
       
         
-    .state('tabsController.cloudTabDefaultPage', {
-      url: '/page9',
+    .state('tabsController.profile', {
+      url: '/profile',
       views: {
         'tab3': {
-          templateUrl: 'templates/cloudTabDefaultPage.html',
-          controller: 'cloudTabDefaultPageCtrl'
+          templateUrl: 'templates/profile.html',
+          controller: 'profileCtrl'
         }
       }
     })
@@ -62,7 +62,7 @@ angular.module('app.routes', [])
     
       
     .state('tabsController', {
-      url: '/page6',
+      url: '/tabs',
       abstract:true,
       templateUrl: 'templates/tabsController.html'
     })
@@ -71,7 +71,7 @@ angular.module('app.routes', [])
       
         
     .state('newSession', {
-      url: '/newsession',
+      url: '/newSession/:sessionId',
       templateUrl: 'templates/newSession.html',
       controller: 'newSessionCtrl'
     })

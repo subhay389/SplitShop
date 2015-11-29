@@ -12,16 +12,9 @@ angular.module('app.services', [])
         headers: authenticationHeaders,
     };
 
-    var data = {
-    	"name": "Testing",
-    	"message": "hello"
-    };
-
-    // var dataString = JSON.stringify(data);
-
 
     return {
-    	createGroup: function() {
+    	createGroup: function(data) {
     		return $http.post(baseURL + "classes/groups", data, defaultSettings)
     			.then(function(_response) {
     				console.log(_response);
