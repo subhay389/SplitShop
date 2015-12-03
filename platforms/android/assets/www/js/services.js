@@ -44,14 +44,14 @@ angular.module('app.services', [])
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
-	//var baseURL = 'http://webservices.amazon.com/onca/xml?' +
-	//		'Service=AWSECommerceService' +
-	//		'&Operation=ItemLookup' +
-	//		'&ResponseGroup=Large' +
-	//		'&SearchIndex=All' +
-	//		'&IdType=UPC';
-	//var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
-	//							'&AssociateTag=[Your_AssociateTag]'
+	var baseURL = 'http://webservices.amazon.com/onca/xml?' +
+			'Service=AWSECommerceService' +
+			'&Operation=ItemLookup' +
+			'&ResponseGroup=Large' +
+			'&SearchIndex=All' +
+			'&IdType=UPC';
+	var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
+								'&AssociateTag=[Your_AssociateTag]'
 
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
@@ -129,23 +129,30 @@ angular.module('app.services', [])
 		currentUser: currentUser
 	};
 
-	//amazon = require('amazon-product-api');
-	//var client = amazon.createClient({
-	//	awsId: 'AKIAJUA2Y3JXDKXJLR5A',
-	//	awsSecret: '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'
-	//});
-    //
-	//var	getStuff = function(_id) {
-	//		var settings = {
-	//			method: 'GET',
-	//			url: baseURL + '&ItemID=' + _id + amazonCredentials,
-	//		};
-	//		return $http(settings)
-	//				.then(function(response) {
-	//					console.log('getStuff', response);
-	//					return response.data.results;
-	//				})
-	//	}
 
+})
+
+.service('appService', function appService($q) {
+	// Wrap the barcode scanner in a service so that it can be shared easily.
+	this.scanBarcode = function() {
+		// The plugin operates asynchronously so a promise
+		// must be used to display the results correctly.
+		var deferred = $q.defer();
+		try {
+			cordova.plugins.barcodeScanner.scan(
+					function (result) {  // success
+						deferred.resolve({'error':false, 'result': result});
+					},
+					function (error) {  // failure
+						deferred.resolve({'error':true, 'result': error.toString()});
+					}
+			);
+		}
+		catch (exc) {
+			deferred.resolve({'error':true, 'result': 'exception: ' + exc.toString()});
+		}
+		return deferred.promise;
+	};
 });
+
 

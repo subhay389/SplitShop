@@ -1,0 +1,58 @@
+{
+	"results": [
+		{
+			"name": "milk",
+			"variety": [
+				{
+					"id": "0",
+					"name": "Great Value Reduced Fat 2% Milk, 1 Gal",
+					"price": "$3.52",
+					"details": [
+						"Reduced fat milk",
+						"Vitamin A palmitate", 
+						"Vitamin D3",
+						"No artificial growth hormones",
+						"Grade A, pasteurized, homogenized",
+						"2% milkfat",
+						"37% less fat than whole milk"
+					]
+				},
+				{
+					"id": "1",
+					"name": "Great Value Vitamin D Milk, 1 Gal",
+					"price": "$3.52",
+					"details": [
+						"Vitamin A palmitate", 
+						"Vitamin D3",
+						"No artificial growth hormones",
+						"Grade A, pasteurized, homogenized"
+					]
+				}
+			]
+		},
+		{
+			"name": "papertowels",
+			"variety": [
+				{
+					"id": "0",
+					"name": "Bounty Select-A-Size Paper Towels, White, 12 Mega Rolls",
+					"price": "$15.97",
+					"details": [
+						"With unique Trap & Lock Technology",
+						"Also available in prints"
+					]
+				},
+				{
+					"id": "1",
+					"name": "Sparkle Pick-A-Size Big Roll Paper Towels, 95 sheets, 16 count",
+					"price": "$13.97",
+					"details": [
+						"95 Pick-A-Size Sheets per roll", 
+						"With Thirst Pockets",
+						"2-ply"
+					]
+				}
+			]
+		}
+	]
+}

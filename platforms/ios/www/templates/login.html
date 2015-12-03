@@ -1,19 +1,17 @@
-<ion-view style="" title="Login">
-    <ion-content class="has-header" padding="'true'">
+
+<ion-view style="" >
+    <ion-content>
         <form style="" class="list">
             <ion-list style="">
-                <label style="" class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input placeholder="" type="text">
-                </label>
-                <label style="" class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input placeholder="" type="password">
-                </label>
             </ion-list>
             <div style="height: 40px;" class="spacer"></div>
-            <a style="" class="button button-stable button-block " ng-click="login()">Log in</a>
-            <a style="" class="button button-positive button-clear button-block " href="#/signup">Or create an account</a>
+
+            <div class = "row">
+                <div class = "col text-center">
+                <img src="img/logo.png" height = "250" width = "250"> <br>       
+                <button class="button button-small button-border icon-left ion-social-facebook button-positive-900 button button-positive" ng-click="login()">Facebook</button>
+                </div>
+            </div>
         </form>
     </ion-content>
 </ion-view>

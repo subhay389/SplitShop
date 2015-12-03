@@ -6,6 +6,39 @@
                 <input placeholder="Item search " type="search" ng-model = "itemName">
             </label>
         </form>
+
+
+        <div>
+            <button style="border-radius: 7px; width:100%; margin-left:auto; margin-right: auto;" class="button button-positive" ng-click="click()">
+                Click to Scan
+            </button>
+        </div>
+
+        <div  style="margin-top: 5px;" ng-bind-html="barCodeNumber"></div>
+
+        <div style="margin-top: 5px;" ng-show="barCodeNumber.length!=0">
+
+            <div class = "row">
+                <div class = "col text-left">
+                    <label class="item item-input">
+                        <span class="input-label" ng-model = "quantity">Quantity</span>
+                        <input type="number">
+                    </label>
+                </div>
+                <div class = "col text-right">
+                    <button style="border-radius: 7px; width:100%; margin-left:auto; margin-right: auto;" class="button button-positive" ng-click="addToCart(quantity)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <button style="border-radius: 7px; width:100%; margin-left:auto; margin-right: auto;" class="button button-assertive" ng-click="clear()">
+                Cancel Item
+            </button>
+
+        </div>
+
+
         <button style="" class="button button-stable button-block " ng-click = search(itemName)>Search</button>
         <ion-list style="">
             <ion-item style="" href="#/itemdetail" menu-close="">Item 1</ion-item>

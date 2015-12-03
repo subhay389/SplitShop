@@ -70,14 +70,22 @@ angular.module('app.routes', [])
     
       
         
-    .state('newSession', {
-      url: '/newSession/:sessionId',
-      templateUrl: 'templates/newSession.html',
-      controller: 'newSessionCtrl'
-    })
-        
-      
-    
+    //.state('newSession', {
+    //  url: '/newSession/:sessionId',
+    //  templateUrl: 'templates/newSession.html',
+    //  controller: 'newSessionCtrl'
+    //})
+    //
+    //
+      .state('tabsController.newSession', {
+        url: '/newSession/:sessionId',
+        views: {
+          'tab1': {
+            templateUrl: 'templates/newSession.html',
+            controller: 'newSessionCtrl'
+          }
+        }
+      })
       
         
     .state('signup', {
