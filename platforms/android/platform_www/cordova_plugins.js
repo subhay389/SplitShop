@@ -71,10 +71,28 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
+    },
+    {
+        "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+        "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+        "pluginId": "phonegap-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{}
+{
+    "com.phonegap.plugins.facebookconnect": "0.11.2",
+    "cordova-plugin-console": "1.0.1",
+    "cordova-plugin-device": "1.0.1",
+    "cordova-plugin-inappbrowser": "1.0.1",
+    "cordova-plugin-splashscreen": "2.1.0",
+    "cordova-plugin-statusbar": "1.0.1",
+    "cordova-plugin-whitelist": "1.0.0",
+    "ionic-plugin-keyboard": "1.0.8",
+    "phonegap-plugin-barcodescanner": "4.0.1"
+}
 // BOTTOM OF METADATA
 });

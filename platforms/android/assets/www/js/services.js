@@ -39,11 +39,19 @@ angular.module('app.services', [])
     				console.log(_response);
     				return _response;
     			});
-    	},
+    	}
     };
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
+	var baseURL = 'http://webservices.amazon.com/onca/xml?' +
+			'Service=AWSECommerceService' +
+			'&Operation=ItemLookup' +
+			'&ResponseGroup=Large' +
+			'&SearchIndex=All' +
+			'&IdType=UPC';
+	var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
+								'&AssociateTag=[Your_AssociateTag]'
 
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
@@ -73,7 +81,7 @@ angular.module('app.services', [])
             			};
             			Parse.getUser(UserData.fb_id).then(function(result){
             				if (result.data.results.length != 0) {
-            					console.log("User exists in the database")
+            					console.log("User exists in the database");
             					return _fbUserInfo;
             				} else {
             					
@@ -119,6 +127,32 @@ angular.module('app.services', [])
 	return {
 		login: login,
 		currentUser: currentUser
-	}
+	};
+
+
+})
+
+.service('appService', function appService($q) {
+	// Wrap the barcode scanner in a service so that it can be shared easily.
+	this.scanBarcode = function() {
+		// The plugin operates asynchronously so a promise
+		// must be used to display the results correctly.
+		var deferred = $q.defer();
+		try {
+			cordova.plugins.barcodeScanner.scan(
+					function (result) {  // success
+						deferred.resolve({'error':false, 'result': result});
+					},
+					function (error) {  // failure
+						deferred.resolve({'error':true, 'result': error.toString()});
+					}
+			);
+		}
+		catch (exc) {
+			deferred.resolve({'error':true, 'result': 'exception: ' + exc.toString()});
+		}
+		return deferred.promise;
+	};
 });
+
 
