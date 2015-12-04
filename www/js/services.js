@@ -14,6 +14,7 @@ angular.module('app.services', [])
 
 
     return {
+        //Sessions
     	createGroup: function(data) {
     		return $http.post(baseURL + "classes/groups", data, defaultSettings)
     			.then(function(_response) {
@@ -22,6 +23,19 @@ angular.module('app.services', [])
     			});
     	},
 
+        getAllSessions: function(UserId) {
+            var params = {
+                "owner": UserId
+            }
+            return $http.get(baseURL + "classes/groups?where=" + JSON.stringify(params), defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+
+        },
+
+        //Users
     	addUser: function(UserData) {
     		return $http.post(baseURL + "classes/person", UserData, defaultSettings)
     			.then(function(_response) {

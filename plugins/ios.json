@@ -32,6 +32,10 @@
         },
         "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "com.telerik.stripe": {
+            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN",
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         }
     },
     "dependent_plugins": {}

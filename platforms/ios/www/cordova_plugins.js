@@ -64,12 +64,66 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.barcodeScanner"
         ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/stripe.js",
+        "id": "com.telerik.stripe.stripe",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/charges.js",
+        "id": "com.telerik.stripe.charges",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.charges"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/customers.js",
+        "id": "com.telerik.stripe.customers",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.customers"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/recipients.js",
+        "id": "com.telerik.stripe.recipients",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.recipients"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/subscriptions.js",
+        "id": "com.telerik.stripe.subscriptions",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.subscriptions"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/transfers.js",
+        "id": "com.telerik.stripe.transfers",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.transfers"
+        ]
+    },
+    {
+        "file": "plugins/com.telerik.stripe/www/coupons.js",
+        "id": "com.telerik.stripe.coupons",
+        "pluginId": "com.telerik.stripe",
+        "clobbers": [
+            "stripe.coupons"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{
-    "phonegap-plugin-barcodescanner": "4.0.1"
-}
+{}
 // BOTTOM OF METADATA
 });

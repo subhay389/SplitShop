@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "803479469762275",
             "APP_NAME": "SplitShop",
@@ -33,7 +36,8 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         },
-        "phonegap-plugin-barcodescanner": {
+        "com.telerik.stripe": {
+            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN",
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         }
     },

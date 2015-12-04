@@ -19,7 +19,7 @@ angular.module('app.controllers', [])
 })
 
    
-.controller('dashboardCtrl', function(appService, $scope, $state, Parse, FacebookAuth, $rootScope, $cordovaBarcodeScanner, $ionicPlatform) {
+.controller('dashboardCtrl', function(appService, $scope, $http, $state, Parse, FacebookAuth, $rootScope, $cordovaBarcodeScanner, $ionicPlatform, $ionicPopup) {
 	FacebookAuth.currentUser().then(function(data){
 		console.log('user in dashboard', data);
 		$scope.userId = data.data.results[0].fb_id;
@@ -44,41 +44,80 @@ angular.module('app.controllers', [])
 		})
 	};
 
-//	$scope.barCodeNumber = '';
-//	$scope.click = function() {
-//		var promise = appService.scanBarcode();
-//		promise.then(
-//				function(result) {
-//					if (result.error == false) {
-//						var d = new Date();
-//						$scope.barCodeNumber = '<table>' +
-//								'<tbody>' +
-//								'<tr><td>Timestamp:</td><td>&nbsp;</td><td>' + d.toUTCString() + '</td></tr>' +
-//								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.text + '</td></tr>' +
-//								'<tr><td>Format:</td><td>&nbsp;</td><td>' + result.result.format + '</td></tr>' +
-//								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.cancelled + '</td></tr>' +
-//								'</tbody>' +
-//								'</table>';
-//					}
-//					else {
-//						$scope.barCodeNumber = '<b>ERROR</b>: ' + result;
-//					}
-//				},
-//				function(result) {
-//					$scope.barCodeNumber = '' + result.error;
-//				},
-//				function(result) {
-//					$scope.barCodeNumber = '' + result.error;
-//				});
-//	};
-//
-//	$scope.clear = function() {
-//		$scope.barCodeNumber = '';
-//	};
-//
-//	$scope.addToCart = function (_quantity) {
-//
-//	}
+	$scope.test = function() {
+
+		var url = "https://api.semantics3.com/test/v1/products?q=";
+		var queryString = '{"upc": "1045440701246"}';
+		var options = {
+		headers: {
+		  api_key: "SEM3082A89A99C4CDC4A3D3728C47442EF08"
+		}
+		};
+		$http.get(url + queryString, options).then(function(data) {
+			console.log('results', data);
+		});
+	}
+
+	$scope.showSessionPopup = function() {
+		$scope.session = {}
+
+		// An elaborate, custom popup
+		var myPopup = $ionicPopup.show({
+		template: '<input type="text" ng-model="session.name" data-ng-init="session.name=\'Untitled Session\'">',
+		title: 'Enter Session Name',
+		subTitle: 'Please write something this is clear to you.',
+		scope: $scope,
+		buttons: [
+		  { text: 'Cancel' },
+		  {
+		    text: '<b>Save</b>',
+		    type: 'button-positive',
+		    onTap: function(e) {
+		      if (!$scope.session.name) {
+		        //don't allow the user to close unless he enters wifi password
+		        e.preventDefault();
+		      } else {
+		      	if (typeof $scope.session.name != "undefined") {
+		      		var sessionInfo = {
+						name: $scope.session.name,
+						owner: $scope.userId,
+						owner_objectId: $scope.objectId,
+						collaborators: [],
+						cartItems: []
+					};
+					Parse.createGroup(sessionInfo).then(function(response) {
+						console.log(response);
+						$scope.sessionId = response.data.objectId;
+						console.log('newsessionId', $scope.sessionId);
+						$state.go('tabsController.newSession', { sessionId: $scope.sessionId })
+					}, function(error) {
+						console.log("Session was not created", error);
+					})
+		      	}
+		        return $scope.session.name;
+		      }
+		    }
+		  }
+		]
+		});
+		myPopup.then(function(res) {
+		console.log('Tapped!', res);
+		myPopup.close();
+		});
+	};
+
+	//Populate user's sessions
+	Parse.getAllSessions($scope.userId).then(function(data) {
+		console.log('all sessions', data.results);
+		$scope.sessions = data.results;
+	})
+
+	//Go to Specific session details
+	$scope.GotoSessiondetails = function (objectId) {
+		$state.go('tabsController.newSession', { sessionId: objectId })
+	}
+
+
 })
    
 .controller('historyCtrl', function($scope) {

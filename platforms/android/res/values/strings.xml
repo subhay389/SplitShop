@@ -3,8 +3,6 @@
     <string name="app_name">SplitShop</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
-    <string name="fb_app_id">803479469762275</string>
-    <string name="fb_app_name">SplitShop</string>
     <string name="app_picker_name">Applications</string>
     <string name="bookmark_picker_name">Bookmarks</string>
     <string name="button_add_calendar">Add to calendar</string>
@@ -124,4 +122,7 @@
     <string name="wifi_changing_network">Requesting connection to network\u2026</string>
     <string name="wifi_ssid_label">Network Name</string>
     <string name="wifi_type_label">Type</string>
+    <string name="fb_app_id">803479469762275</string>
+    <string name="fb_app_name">SplitShop</string>
+    <string name="stripe_api_key">pk_test_H1GUERDfOl0L4tLwJp96PCaN</string>
 </resources>
