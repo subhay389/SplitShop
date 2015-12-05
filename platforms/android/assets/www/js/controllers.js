@@ -44,45 +44,41 @@ angular.module('app.controllers', [])
 		})
 	};
 
-//	$scope.barCodeNumber = '';
-//	$scope.click = function() {
-//		var promise = appService.scanBarcode();
-//		promise.then(
-//				function(result) {
-//					if (result.error == false) {
-//						var d = new Date();
-//						$scope.barCodeNumber = '<table>' +
-//								'<tbody>' +
-//								'<tr><td>Timestamp:</td><td>&nbsp;</td><td>' + d.toUTCString() + '</td></tr>' +
-//								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.text + '</td></tr>' +
-//								'<tr><td>Format:</td><td>&nbsp;</td><td>' + result.result.format + '</td></tr>' +
-//								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.cancelled + '</td></tr>' +
-//								'</tbody>' +
-//								'</table>';
-//					}
-//					else {
-//						$scope.barCodeNumber = '<b>ERROR</b>: ' + result;
-//					}
-//				},
-//				function(result) {
-//					$scope.barCodeNumber = '' + result.error;
-//				},
-//				function(result) {
-//					$scope.barCodeNumber = '' + result.error;
-//				});
-//	};
-//
-//	$scope.clear = function() {
-//		$scope.barCodeNumber = '';
-//	};
-//
-//	$scope.addToCart = function (_quantity) {
-//
-//	}
+
 })
    
 .controller('historyCtrl', function($scope) {
+	console.log("test");
+	var api_key = '	SEM3082A89A99C4CDC4A3D3728C47442EF08';
+	var api_secret = 'YjQ2YjFlODBlNGEyYmM1OTg5OThmNzUzODUzZTU4MDc';
+	var sem3 = require('semantics3-node')(api_key,api_secret);
+	sem3.products.products_field( "upc", "883974958450" );
+	sem3.products.products_field( "field", ["name","gtins"] );
+	sem3.products.get_products(
+			function(err, products) {
+				if (err) {
+					console.log("Couldn't execute request: get_products");
+					return;
+				}
 
+				// View the results of the request
+				console.log( "Results of request:\n" + JSON.stringify( products ) );
+			}
+	);
+
+	sem3.products.products_field( "search", "iphone" );
+
+// Run the request
+	sem3.products.get_products(
+			function(err, products) {
+				if (err) {
+					console.log("Couldn't execute request: get_products");
+					return;
+				}
+				// View results of the request
+				console.log( "Results of request:\n" + JSON.stringify( products ) );
+			}
+	);
 })
    
 .controller('profileCtrl', function($scope, FacebookAuth) {

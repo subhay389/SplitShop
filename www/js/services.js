@@ -44,14 +44,14 @@ angular.module('app.services', [])
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
-	var baseURL = 'http://webservices.amazon.com/onca/xml?' +
-			'Service=AWSECommerceService' +
-			'&Operation=ItemLookup' +
-			'&ResponseGroup=Large' +
-			'&SearchIndex=All' +
-			'&IdType=UPC';
-	var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
-								'&AssociateTag=[Your_AssociateTag]'
+	//var baseURL = 'http://webservices.amazon.com/onca/xml?' +
+	//		'Service=AWSECommerceService' +
+	//		'&Operation=ItemLookup' +
+	//		'&ResponseGroup=Large' +
+	//		'&SearchIndex=All' +
+	//		'&IdType=UPC';
+	//var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
+	//							'&AssociateTag=[Your_AssociateTag]'
 
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])

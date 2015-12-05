@@ -97,15 +97,24 @@ angular.module('app.routes', [])
       
     
       
-        
-    .state('shopping', {
-      url: '/shopping',
-      templateUrl: 'templates/shopping.html',
-      controller: 'shoppingCtrl'
-    })
-        
-      
-    
+    //
+    //.state('shopping', {
+    //  url: '/shopping',
+    //  templateUrl: 'templates/shopping.html',
+    //  controller: 'shoppingCtrl'
+    //})
+    //
+
+      .state('tabsController.shopping', {
+        url: '/shopping',
+        views: {
+          'tab1': {
+            templateUrl: 'templates/shopping.html',
+            controller: 'shoppingCtrl'
+          }
+        }
+
+      })
       
         
     .state('itemDetail', {
