@@ -98,40 +98,59 @@ angular.module('app.routes', [])
     
       
         
-    .state('shopping', {
+    .state('tabsController.shopping', {
       url: '/shopping',
-      templateUrl: 'templates/shopping.html',
-      controller: 'shoppingCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/shopping.html',
+          controller: 'shoppingCtrl'
+        }
+      }
+
     })
         
       
     
       
         
-    .state('itemDetail', {
+    .state('tabsController.itemDetail', {
       url: '/itemdetail',
-      templateUrl: 'templates/itemDetail.html',
-      controller: 'itemDetailCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/itemDetail.html',
+          controller: 'itemDetailCtrl'
+        }
+      }
     })
         
       
     
       
         
-    .state('cart', {
+    .state('tabsController.cart', {
       url: '/cart',
-      templateUrl: 'templates/cart.html',
-      controller: 'cartCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/cart.html',
+          controller: 'cartCtrl'
+        }
+      }
+
     })
         
       
     
       
         
-    .state('checkout', {
+    .state('tabsController.checkout', {
       url: '/Checkout',
-      templateUrl: 'templates/checkout.html',
-      controller: 'checkoutCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/checkout.html',
+          controller: 'checkoutCtrl'
+        }
+      }
+
     })
         
       

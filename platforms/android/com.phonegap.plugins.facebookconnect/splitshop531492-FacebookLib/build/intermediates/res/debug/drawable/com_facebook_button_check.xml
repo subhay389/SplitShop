@@ -18,4 +18,4 @@
   <item android:state_checked="true" android:drawable="@drawable/com_facebook_button_check_on" />
   <item android:drawable="@drawable/com_facebook_button_check_off" />
 </selector>
-<!-- From: file:/Users/subhay/Documents/SplitShop%209.02.12%20PM/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_button_check.xml -->
+<!-- From: file:/Users/subhay/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_button_check.xml -->
