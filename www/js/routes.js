@@ -86,6 +86,12 @@ angular.module('app.routes', [])
           }
         }
       })
+
+      .state('itemDetail', {
+        url: '/itemdetail/:sem3_id',
+        templateUrl: 'templates/itemDetail.html',
+        controller: 'itemDetailCtrl'
+      })
       
         
     .state('signup', {
@@ -99,25 +105,12 @@ angular.module('app.routes', [])
       
         
     .state('shopping', {
+      parent: 'tabsController.newSession',
       url: '/shopping',
       templateUrl: 'templates/shopping.html',
       controller: 'shoppingCtrl'
     })
-        
-      
-    
-      
-        
-    .state('itemDetail', {
-      url: '/itemdetail',
-      templateUrl: 'templates/itemDetail.html',
-      controller: 'itemDetailCtrl'
-    })
-        
-      
-    
-      
-        
+   
     .state('cart', {
       url: '/cart',
       templateUrl: 'templates/cart.html',

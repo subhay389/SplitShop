@@ -44,19 +44,7 @@ angular.module('app.controllers', [])
 		})
 	};
 
-	$scope.test = function() {
-
-		var url = "https://api.semantics3.com/test/v1/products?q=";
-		var queryString = '{"upc": "1045440701246"}';
-		var options = {
-		headers: {
-		  api_key: "SEM3082A89A99C4CDC4A3D3728C47442EF08"
-		}
-		};
-		$http.get(url + queryString, options).then(function(data) {
-			console.log('results', data);
-		});
-	}
+	
 
 	$scope.showSessionPopup = function() {
 		$scope.session = {}
@@ -131,10 +119,55 @@ angular.module('app.controllers', [])
 	});
 })
       
-.controller('newSessionCtrl', function($scope, Parse, $state, $stateParams) {
+.controller('newSessionCtrl', function($scope, Parse, SemanticsService, $state, $stateParams, FacebookAuth, $rootScope, $cordovaBarcodeScanner, $ionicPlatform, appService) {
 	$scope.sessionId = $state.params;
 	console.log('sessionid', $scope.sessionId);
 	console.log($stateParams);
+
+	$scope.product_results = [];
+	$scope.searchQueryString = function (SearchQuery) {
+		console.log(SearchQuery);
+		SemanticsService.getProductbyKeyword(SearchQuery).then(function(response) {
+			console.log("product search", response);
+			$scope.product_results = response.data.results;
+		})
+	}
+
+	$scope.barCodeNumber = '';
+	$scope.click = function() {
+		var promise = appService.scanBarcode();
+		promise.then(
+				function(result) {
+					if (result.error == false) {
+						var d = new Date();
+						$scope.barCodeNumber = '<table>' +
+								'<tbody>' +
+								'<tr><td>Timestamp:</td><td>&nbsp;</td><td>' + d.toUTCString() + '</td></tr>' +
+								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.text + '</td></tr>' +
+								'<tr><td>Format:</td><td>&nbsp;</td><td>' + result.result.format + '</td></tr>' +
+								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.cancelled + '</td></tr>' +
+								'</tbody>' +
+								'</table>';
+					}
+					else {
+						$scope.barCodeNumber = '<b>ERROR</b>: ' + result;
+					}
+				},
+				function(result) {
+					$scope.barCodeNumber = '' + result.error;
+				},
+				function(result) {
+					$scope.barCodeNumber = '' + result.error;
+				});
+	};
+
+	$scope.clear = function() {
+		$scope.barCodeNumber = '';
+	};
+
+	$scope.addToCart = function (_quantity) {
+
+	}
 })	
    
 .controller('signupCtrl', function($scope) {

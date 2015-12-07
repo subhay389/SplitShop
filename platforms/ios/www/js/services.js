@@ -58,15 +58,6 @@ angular.module('app.services', [])
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
-	var baseURL = 'http://webservices.amazon.com/onca/xml?' +
-			'Service=AWSECommerceService' +
-			'&Operation=ItemLookup' +
-			'&ResponseGroup=Large' +
-			'&SearchIndex=All' +
-			'&IdType=UPC';
-	var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
-								'&AssociateTag=[Your_AssociateTag]'
-
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
             .then(function (success) {
@@ -167,6 +158,37 @@ angular.module('app.services', [])
 		}
 		return deferred.promise;
 	};
-});
+})
 
+
+.factory('SemanticsService', function($http){
+
+    var url = "https://api.semantics3.com/test/v1/products?q=";
+    var queryString = '{"upc": "1045440701246"}';
+    var options = {
+        headers: SEMANTICS_HEADER_CREDENTIALS
+    };
+    
+    return {
+        getProductbyUPC : function(upcId) {
+            var queryString = {
+                "upc": upcId
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
+        },
+
+        getProductbyKeyword : function(searchQuery) {
+            var queryString = {
+                "search": searchQuery
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
+        }
+    };
+})
 
