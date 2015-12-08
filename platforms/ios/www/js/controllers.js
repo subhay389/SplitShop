@@ -24,6 +24,13 @@ angular.module('app.controllers', [])
 		console.log('user in dashboard', data);
 		$scope.userId = data.data.results[0].fb_id;
 		$scope.objectId = data.data.results[0].objectId;
+
+		//Populate user's sessions
+		Parse.getAllSessions($scope.userId).then(function(data) {
+			console.log(data);
+			console.log('all sessions', data.results);
+			$scope.sessions = data.results;
+		});
 	});
 
 
@@ -110,11 +117,7 @@ angular.module('app.controllers', [])
 		});
 	};
 
-	//Populate user's sessions
-	Parse.getAllSessions($scope.userId).then(function(data) {
-		console.log('all sessions', data.results);
-		$scope.sessions = data.results;
-	});
+
 
 	//Go to Specific session details
 	$scope.GotoSessiondetails = function (objectId) {
@@ -276,7 +279,7 @@ angular.module('app.controllers', [])
 			else {
 				var alertPopup = $ionicPopup.alert({
 				     title: "Uh Oh!",
-				     template: "No user found. Try again with a different email."
+				     template: "You either entered an invalid email or email that is not in our database."
 				});
 			}
 		})
@@ -296,7 +299,12 @@ angular.module('app.controllers', [])
 	$scope.addUser = function(userEmail) {
 		console.log(userEmail);
 		if ($scope.user.email != userEmail && userEmail != null) {
-			Parse.addUsertoSession(userEmail, $scope.sessionId).then(function(response) {
+			var userInfo = {
+				"email": userEmail,
+				"money_owed": 0
+			}
+
+			Parse.addUsertoSession(userInfo, $scope.sessionId).then(function(response) {
 			console.log(response);
 			var alertPopup = $ionicPopup.alert({
 			     title: "Congrats!",
