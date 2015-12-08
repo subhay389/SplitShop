@@ -87,11 +87,11 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('itemDetail', {
-        url: '/itemdetail/:sem3_id',
-        templateUrl: 'templates/itemDetail.html',
-        controller: 'itemDetailCtrl'
-      })
+      // .state('itemDetail', {
+      //   url: '/itemdetail/:sem3_id',
+      //   templateUrl: 'templates/itemDetail.html',
+      //   controller: 'itemDetailCtrl'
+      // })
       
         
     .state('signup', {
@@ -104,27 +104,60 @@ angular.module('app.routes', [])
     
       
         
-    .state('shopping', {
-      parent: 'tabsController.newSession',
+
+    .state('tabsController.shopping', {
       url: '/shopping',
-      templateUrl: 'templates/shopping.html',
-      controller: 'shoppingCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/shopping.html',
+          controller: 'shoppingCtrl'
+        }
+      }
+
     })
-   
-    .state('cart', {
-      url: '/cart',
-      templateUrl: 'templates/cart.html',
-      controller: 'cartCtrl'
+
+      
+    
+      
+        
+    .state('tabsController.itemDetail', {
+      url: '/itemdetail/:sem3_id',
+      views: {
+        'tab1': {
+          templateUrl: 'templates/itemDetail.html',
+          controller: 'itemDetailCtrl'
+        }
+      }
     })
         
       
     
       
         
-    .state('checkout', {
+    .state('tabsController.cart', {
+      url: '/cart',
+      views: {
+        'tab1': {
+          templateUrl: 'templates/cart.html',
+          controller: 'cartCtrl'
+        }
+      }
+
+    })
+        
+      
+    
+      
+        
+    .state('tabsController.checkout', {
       url: '/Checkout',
-      templateUrl: 'templates/checkout.html',
-      controller: 'checkoutCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/checkout.html',
+          controller: 'checkoutCtrl'
+        }
+      }
+
     })
         
       

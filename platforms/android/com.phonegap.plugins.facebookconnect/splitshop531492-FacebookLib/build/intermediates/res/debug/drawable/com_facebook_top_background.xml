@@ -20,4 +20,8 @@
       android:endColor="#FF47639e"
       android:angle="270"/>
 </shape>
+<<<<<<< HEAD
 <!-- From: file:/Users/rockndo/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_top_background.xml -->
+=======
+<!-- From: file:/Users/subhay/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/drawable/com_facebook_top_background.xml -->
+>>>>>>> 3b61b1d9eb1619f7c06a7edd82d3c926fafee718

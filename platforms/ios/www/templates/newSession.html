@@ -46,12 +46,12 @@
 
         
         <ion-list>
-            <ion-item ng-repeat="product in product_results track by product.sem3_id" href="#/itemdetail/:sem3_id">
+            <ion-item ng-repeat="product in product_results track by product.sem3_id" href="#/tabs/itemdetail/:sem3_id">
                 {{ product }}
 
             </ion-item>
         </ion-list>
-        <a style="" class="button button-stable button-block " href="#/cart">Go to Cart</a>
+        <a style="" class="button button-stable button-block " href="#/tabs/cart">Go to Cart</a>
         
         <form style="" class="list">
             <label style="" class="item item-input">
@@ -66,6 +66,10 @@
             <ion-item style="" menu-close="">w-33</ion-item>
         </ion-list>
         <div style="width: 300px; height: 132px;" class="spacer"></div>
+<<<<<<< HEAD
         <a style="" class="button button-stable button-block " ui-sref="shopping">Proceed to Shopping</a>
+=======
+        <a style="" class="button button-stable button-block " href="#/tabs/shopping">Proceed to Shopping</a>
+>>>>>>> 3b61b1d9eb1619f7c06a7edd82d3c926fafee718
     </ion-content>
 </ion-view>
