@@ -42,11 +42,11 @@ angular.module('app.services', [])
                 });
         },
 
-        addUsertoSession: function(userEmail, sessionId) {
+        addUsertoSession: function(userInfo, sessionId) {
             var data = {
                 "collaborators": {
                     "__op":"AddUnique",
-                    "objects": [userEmail]
+                    "objects": [userInfo]
                 }
             };
 
