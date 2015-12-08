@@ -331,59 +331,60 @@ angular.module('app.controllers', [])
 	})
 
 	$scope.addToCart = function() {
-		
-		SemanticsService.getProductbySem3Id($scope.productId).then(function(response) {
-			console.log(response);
-			// An elaborate, custom popup
-			$scope.item = {}
-				var myPopup = $ionicPopup.show({
-					template: '<input type="number" min="1" step="1" ng-model="item.quantity" ng-init="item.quanitity=\'1\'">',
-					title: 'Adding item into your Cart',
-					subTitle: 'Please specify the quantity of the item.',
-					scope: $scope,
-					buttons: [
-						{ text: 'Cancel' },
-						{
-							text: '<b>Save</b>',
-							type: 'button-positive',
-							onTap: function(e) {
-								if (!$scope.item.quantity) {
-									//don't allow the user to close unless he enters wifi password
-									e.preventDefault();
-								} else if($scope.item.quantity < 1) {
-									var alertPopup = $ionicPopup.alert({
-										title: "Uh Oh!",
-										template: "You entered invalid number."
-									});
-								} else {
-								//      		var productInfo = {
-								//      			"name" : product.name,
-								//      			"description": product.description,
-								//      			"price": product.price,
-								//      			"price_currency": product.price_currency,
-								//      			"quantity": $scope.item.quantity
-								//      		};
+		$scope.item = {}
 
-								//      		Parse.addToCart(productInfo, $scope.sessionId).then(function(response) {
-								//      			console.log(response);
-								//      			var alertPopup = $ionicPopup.alert({
-								//      title: "Hurray",
-								//      template: 'Item is added to your cart'
-								// });
-								//      		});
-									return $scope.item.quantity;
-								};
-								
-							}
-						}
-					]
-				});
-				myPopup.then(function(res) {
-					console.log('Tapped!', res);
-					myPopup.close();
-				});
-		})
-		$ionicHistory.goBack();
+		  // An elaborate, custom popup
+		  var myPopup = $ionicPopup.show({
+		    template: '<input type="number" min="1" step="1" ng-model="item.quantity" ng-init="item.quanitity=\'1\'">',
+		    title: 'Adding item into your Cart',
+		    subTitle: 'Please specify the quantity of the item.',
+		    scope: $scope,
+		    buttons: [
+		      { text: 'Cancel' },
+		      {
+		        text: '<b>Save</b>',
+		        type: 'button-positive',
+		        onTap: function(e) {
+		          if (!$scope.item.quantity) {
+		            //don't allow the user to close unless he enters wifi password
+		            e.preventDefault();
+		          } else if($scope.item.quantity < 1) {
+			          	var alertPopup = $ionicPopup.alert({
+						     title: "Uh Oh!",
+						     template: "You entered invalid number."
+
+						});
+		          } else {
+		          		SemanticsService.getProductbySem3Id($scope.productId).then(function(response) {
+		          			var product = response.data.results[0];
+		          			var productInfo = {
+			          			"name" : product.name,
+			          			"description": product.description,
+			          			"price": product.price,
+			          			"price_currency": product.price_currency,
+			          			"quantity": $scope.item.quantity
+			          		};
+
+			          		Parse.addToCart(productInfo, $scope.sessionId).then(function(response) {
+			          			console.log(response);
+			          			var alertPopup = $ionicPopup.alert({
+								     title: "Hurray",
+								     template: 'Item is added to your cart'
+								});
+			          		});
+		          		})
+		          		
+		          	};
+		            return $scope.item.quantity;
+		          }
+		        }
+		    ]
+		  });
+		  myPopup.then(function(res) {
+		    console.log('Tapped!', res);
+		    myPopup.close();
+		  });
+		
 
 		  
 	}
