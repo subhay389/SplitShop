@@ -1,14 +1,32 @@
 <ion-view style="" title="Item Detail">
     <ion-content class="has-header" padding="'true'">
-        <h3 style="">Item Name</h3>
-        <div style="line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto;">
-            <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
-        </div>
-        <form style="" class="list">
-            <label style="" class="item item-input">
-                <span class="input-label">Quantity</span><textarea placeholder=""> </textarea>
-            </label>
-            <a style="" class="button button-stable button-block " href="#/shopping">Add to cart</a>
-        </form>
+
+        <ion-list>
+
+            <div class="item item-divider">
+                {{ item.name }}
+            </div>
+            <ion-item>
+                <strong> Name </strong> : {{ item.name | limitTo: 32 }}
+            </ion-item>
+
+            <ion-item>
+                <strong> Brand </strong> :  {{ item.brand }}
+            </ion-item>
+            <ion-item>
+                <strong> Price </strong> :  {{ item.price }} {{ item.price_currency }}
+            </ion-item>
+
+
+            <div class="item item-divider">
+                Features 
+            </div>
+
+            <ion-item ng-repeat="(featureType, featureDetails) in item.features">
+                <strong> {{ featureType }}  </strong> : {{ featureDetails}}
+            </ion-item>
+        </ion-list>
+
+
     </ion-content>
 </ion-view>

@@ -188,6 +188,16 @@ angular.module('app.services', [])
                 console.log('results', data);
                 return data;
             })
+        },
+
+        getProductbySem3Id : function(sem3Id) {
+            var queryString = {
+                "sem3_id": sem3Id
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
         }
     };
 })

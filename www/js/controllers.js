@@ -217,7 +217,15 @@ angular.module('app.controllers', [])
 })
 
    
-.controller('itemDetailCtrl', function($scope) {
+.controller('itemDetailCtrl', function($scope, $state, $stateParams, SemanticsService) {
+	$scope.productId = $stateParams.sem3_id;
+	console.log($stateParams);
+	SemanticsService.getProductbySem3Id($scope.productId).then(function(response) {
+		console.log(response);
+		$scope.item = response.data.results[0];
+		console.log($scope.item);
+	})
+
 
 })
    
