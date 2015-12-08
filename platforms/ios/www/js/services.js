@@ -32,7 +32,52 @@ angular.module('app.services', [])
                     console.log(_response);
                     return _response.data;
                 });
+        },
 
+        getSessionbyId: function(sessionId) {
+            return $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        addUsertoSession: function(userEmail, sessionId) {
+            var data = {
+                "collaborators": {
+                    "__op":"AddUnique",
+                    "objects": [userEmail]
+                }
+            };
+
+            return $http.put(baseURL + "classes/groups/" + sessionId, data, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        addToCart: function(productInfo, sessionId) {
+            var data = {
+                "cartItems": {
+                    "__op":"AddUnique",
+                    "objects": [productInfo]
+                }
+            };
+
+            return $http.put(baseURL + "classes/groups/" + sessionId, data, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        getItemsfromCart: function(sessionId) {
+            return $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
         },
 
         //Users
@@ -53,7 +98,18 @@ angular.module('app.services', [])
     				console.log(_response);
     				return _response;
     			});
-    	}
+    	},
+
+        getUserbyEmail: function(userEmail) {
+            var params = {
+                "email": userEmail
+            }
+            return $http.get(baseURL + "classes/person?where=" + JSON.stringify(params), defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
+        },
     };
 })
 

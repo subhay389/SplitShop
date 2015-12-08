@@ -1,9 +1,9 @@
 <ion-view style="" title="Cart">
     <ion-content class="has-header" padding="'true'">
         <ion-list style="">
-            <ion-item style="" menu-close="">Item 1</ion-item>
-            <ion-item style="" menu-close="">Item 2</ion-item>
-            <ion-item style="" menu-close="">Item 3</ion-item>
+            <ion-item style="" ng-repeat="item in cartItems">
+            	{{ item }}
+            </ion-item>
         </ion-list>
         <div style="height: 100px;" class="spacer"></div>
         <a style="" class="button button-stable button-block " href="#tabs/Checkout">Check Out</a>

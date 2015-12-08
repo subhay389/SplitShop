@@ -1,7 +1,10 @@
-<ion-view style="" title="New Session">
+<ion-view style="" title="Shopping">
+    <div class="bar bar-subheader">
+      <h2 class="title">{{ currentSession.name }}</h2>
+    </div>
     
 
-    <ion-content class="has-header" padding="'true'">
+    <ion-content class="has-subheader" padding="'true'">
 
         <form style="" class="list">
             <label style="" class="item item-input">
@@ -19,55 +22,34 @@
             </button>
         </div>
 
-        <!--<div  style="margin-top: 5px;" ng-bind-html="barCodeNumber"></div>-->
-
-        <!--<div style="margin-top: 5px;" ng-show="barCodeNumber.length!=0">-->
-
-            <!--<div class = "row">-->
-                <!--<div class = "col text-left">-->
-                    <!--<label class="item item-input">-->
-                        <!--<span class="input-label" ng-model = "quantity">Quantity</span>-->
-                        <!--<input type="number">-->
-                    <!--</label>-->
-                <!--</div>-->
-                <!--<div class = "col text-right">-->
-                    <!--<button style="border-radius: 7px; width:100%; margin-left:auto; margin-right: auto;" class="button button-positive" ng-click="addToCart(quantity)">-->
-                        <!--Add to Cart-->
-                    <!--</button>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<button style="border-radius: 7px; width:100%; margin-left:auto; margin-right: auto;" class="button button-assertive" ng-click="clear()">-->
-                <!--Cancel Item-->
-            <!--</button>-->
-
-        <!--</div>-->
-
-
         
         <ion-list class = "padding" class="item-remove-animate">
-            <ion-item ng-repeat="product in product_results track by product.sem3_id" href="#/tabs/itemdetail/{{ product.sem3_id }}">
+            <ion-item ng-repeat="product in product_results track by product.sem3_id" ng-click="gotoItemDetails(product.sem3_id)">
                 {{ product.name }}
             <span class="item-note">
               {{ product.price }}{{ product.price_currency }}
             </span>
-                <ion-option-button class="button-energized"
-                                   ng-click="addToCart(item)">
+                <ion-option-button class="button-energized" ng-click="addToCart(product)">
                     Add to Cart
                 </ion-option-button>
             </ion-item>
         </ion-list>
 
 
-        <a style="" class="button button-stable button-block " href="#/tabs/cart">Go to Cart</a>
+        <a style="" class="button button-stable button-block " ng-click="goToCart()">Go to Cart</a>
         
         <form style="" class="list">
             <label style="" class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input placeholder="App people" type="search">
+                <input placeholder="Add people by email" type="search" ng-model="userEmail">
             </label>
+            <button type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" class="button button-stable button-block " ng-click="searchPeople(userEmail)">Search</button>
         </form>
-        {{ sessionId }}
+        <ion-list>
+            <ion-item ng-click="addUser(searchPeopleresult.email)">
+                {{ searchPeopleresult.name }}
+            </ion-item>
+        </ion-list>
 
     </ion-content>
 </ion-view>

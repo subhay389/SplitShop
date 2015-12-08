@@ -121,7 +121,7 @@ angular.module('app.routes', [])
       
         
     .state('tabsController.itemDetail', {
-      url: '/itemdetail/:sem3_id',
+      url: '/itemdetail/:sessionId/:sem3_id',
       views: {
         'tab1': {
           templateUrl: 'templates/itemDetail.html',
@@ -135,7 +135,7 @@ angular.module('app.routes', [])
       
         
     .state('tabsController.cart', {
-      url: '/cart',
+      url: '/cart/:sessionId',
       views: {
         'tab1': {
           templateUrl: 'templates/cart.html',
