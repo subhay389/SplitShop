@@ -325,6 +325,12 @@ angular.module('app.controllers', [])
 			});
 		}	
 	}
+
+	$scope.addPeople = function(item) {
+		alert('add');
+	};
+
+
 })	
    
 .controller('signupCtrl', function($scope) {
@@ -415,7 +421,7 @@ angular.module('app.controllers', [])
 	$scope.edit = function(item) {
 		alert('edit');
 	};
-	$scope.delete = function(item) {
+	$scope.remove = function(item) {
 		alert('delete');
 	};
 
