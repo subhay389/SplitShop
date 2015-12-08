@@ -67,6 +67,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Stripe\"><param name=\"ios-package\" value=\"CDVStripe\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -88,6 +92,12 @@
                     "CFBundleURLTypes": [
                         {
                             "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>fb803479469762275</string></array></dict></array>",
+                            "count": 1
+                        }
+                    ],
+                    "StripeApiKey": [
+                        {
+                            "xml": "<string>pk_test_H1GUERDfOl0L4tLwJp96PCaN</string>",
                             "count": 1
                         }
                     ]
@@ -120,6 +130,10 @@
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         },
         "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
+        "com.telerik.stripe": {
+            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN",
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         }
     },
@@ -188,6 +202,62 @@
             "pluginId": "phonegap-plugin-barcodescanner",
             "clobbers": [
                 "cordova.plugins.barcodeScanner"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/stripe.js",
+            "id": "com.telerik.stripe.stripe",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/charges.js",
+            "id": "com.telerik.stripe.charges",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.charges"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/customers.js",
+            "id": "com.telerik.stripe.customers",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.customers"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/recipients.js",
+            "id": "com.telerik.stripe.recipients",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.recipients"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/subscriptions.js",
+            "id": "com.telerik.stripe.subscriptions",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.subscriptions"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/transfers.js",
+            "id": "com.telerik.stripe.transfers",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.transfers"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/coupons.js",
+            "id": "com.telerik.stripe.coupons",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.coupons"
             ]
         }
     ],

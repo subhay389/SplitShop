@@ -13,4 +13,8 @@
                  android:indeterminateOnly="true"
             />
 </RelativeLayout>
+<<<<<<< HEAD
+<!-- From: file:/Users/rockndo/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/layout/com_facebook_login_activity_layout.xml -->
+=======
 <!-- From: file:/Users/subhay/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/layout/com_facebook_login_activity_layout.xml -->
+>>>>>>> 3b61b1d9eb1619f7c06a7edd82d3c926fafee718

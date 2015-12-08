@@ -28,4 +28,8 @@
             android:drawablePadding="5dp"
             android:imeOptions="actionDone"
             />
+<<<<<<< HEAD
+</LinearLayout><!-- From: file:/Users/rockndo/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/layout/com_facebook_search_bar_layout.xml -->
+=======
 </LinearLayout><!-- From: file:/Users/subhay/Documents/SplitShop/platforms/android/com.phonegap.plugins.facebookconnect/splitshop531492-FacebookLib/res/layout/com_facebook_search_bar_layout.xml -->
+>>>>>>> 3b61b1d9eb1619f7c06a7edd82d3c926fafee718

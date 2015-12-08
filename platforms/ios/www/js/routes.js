@@ -86,6 +86,12 @@ angular.module('app.routes', [])
           }
         }
       })
+
+      // .state('itemDetail', {
+      //   url: '/itemdetail/:sem3_id',
+      //   templateUrl: 'templates/itemDetail.html',
+      //   controller: 'itemDetailCtrl'
+      // })
       
         
     .state('signup', {
@@ -98,6 +104,7 @@ angular.module('app.routes', [])
     
       
         
+
     .state('tabsController.shopping', {
       url: '/shopping',
       views: {
@@ -108,13 +115,13 @@ angular.module('app.routes', [])
       }
 
     })
-        
+
       
     
       
         
     .state('tabsController.itemDetail', {
-      url: '/itemdetail',
+      url: '/itemdetail/:sem3_id',
       views: {
         'tab1': {
           templateUrl: 'templates/itemDetail.html',

@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /></feature>",
                             "count": 1
                         },
@@ -57,7 +61,49 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
+                            "xml": "<feature name=\"Stripe\"><param name=\"android-package\" value=\"com.telerik.stripe.StripePlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [
+                        {
+                            "xml": "<activity android:clearTaskOnLaunch=\"true\" android:configChanges=\"orientation|keyboardHidden\" android:exported=\"false\" android:name=\"com.google.zxing.client.android.CaptureActivity\" android:theme=\"@android:style/Theme.NoTitleBar.Fullscreen\" android:windowSoftInputMode=\"stateAlwaysHidden\"><intent-filter><action android:name=\"com.google.zxing.client.android.SCAN\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.encode.EncodeActivity\"><intent-filter><action android:name=\"com.phonegap.plugins.barcodescanner.ENCODE\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+                            "count": 1
+                        }
+                    ],
+                    "application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
                             "count": 1
                         }
                     ]
@@ -65,16 +111,6 @@
             },
             "res/values/strings.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<string name=\"fb_app_id\">803479469762275</string>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<string name=\"fb_app_name\">SplitShop</string>",
-                            "count": 1
-                        }
-                    ],
                     "/resources": [
                         {
                             "xml": "<string name=\"app_picker_name\">Applications</string>",
@@ -552,46 +588,18 @@
                             "xml": "<string name=\"wifi_type_label\">Type</string>",
                             "count": 1
                         }
-                    ]
-                }
-            },
-            "AndroidManifest.xml": {
-                "parents": {
-                    "application": [
-                        {
-                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
-                            "count": 1
-                        }
                     ],
-                    "/manifest/application": [
+                    "/*": [
                         {
-                            "xml": "<activity android:clearTaskOnLaunch=\"true\" android:configChanges=\"orientation|keyboardHidden\" android:exported=\"false\" android:name=\"com.google.zxing.client.android.CaptureActivity\" android:theme=\"@android:style/Theme.NoTitleBar.Fullscreen\" android:windowSoftInputMode=\"stateAlwaysHidden\"><intent-filter><action android:name=\"com.google.zxing.client.android.SCAN\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "xml": "<string name=\"fb_app_id\">803479469762275</string>",
                             "count": 1
                         },
                         {
-                            "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.encode.EncodeActivity\"><intent-filter><action android:name=\"com.phonegap.plugins.barcodescanner.ENCODE\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "xml": "<string name=\"fb_app_name\">SplitShop</string>",
                             "count": 1
                         },
                         {
-                            "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
-                            "count": 1
-                        }
-                    ],
-                    "/manifest": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+                            "xml": "<string name=\"stripe_api_key\">pk_test_H1GUERDfOl0L4tLwJp96PCaN</string>",
                             "count": 1
                         }
                     ]
@@ -600,6 +608,9 @@
         }
     },
     "installed_plugins": {
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.splitshop531492"
+        },
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "803479469762275",
             "APP_NAME": "SplitShop",
@@ -626,12 +637,21 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         },
-        "phonegap-plugin-barcodescanner": {
+        "com.telerik.stripe": {
+            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN",
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "phonegap-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
+        },
         {
             "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
             "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
@@ -705,23 +725,60 @@
             "runs": true
         },
         {
-            "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
-            "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
-            "pluginId": "phonegap-plugin-barcodescanner",
+            "file": "plugins/com.telerik.stripe/www/stripe.js",
+            "id": "com.telerik.stripe.stripe",
+            "pluginId": "com.telerik.stripe",
             "clobbers": [
-                "cordova.plugins.barcodeScanner"
+                "stripe"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/charges.js",
+            "id": "com.telerik.stripe.charges",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.charges"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/customers.js",
+            "id": "com.telerik.stripe.customers",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.customers"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/recipients.js",
+            "id": "com.telerik.stripe.recipients",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.recipients"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/subscriptions.js",
+            "id": "com.telerik.stripe.subscriptions",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.subscriptions"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/transfers.js",
+            "id": "com.telerik.stripe.transfers",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.transfers"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.stripe/www/coupons.js",
+            "id": "com.telerik.stripe.coupons",
+            "pluginId": "com.telerik.stripe",
+            "clobbers": [
+                "stripe.coupons"
             ]
         }
-    ],
-    "plugin_metadata": {
-        "com.phonegap.plugins.facebookconnect": "0.11.2",
-        "cordova-plugin-console": "1.0.1",
-        "cordova-plugin-device": "1.0.1",
-        "cordova-plugin-inappbrowser": "1.0.1",
-        "cordova-plugin-splashscreen": "2.1.0",
-        "cordova-plugin-statusbar": "1.0.1",
-        "cordova-plugin-whitelist": "1.0.0",
-        "ionic-plugin-keyboard": "1.0.8",
-        "phonegap-plugin-barcodescanner": "4.0.1"
-    }
+    ]
 }

@@ -62,6 +62,7 @@
 		CD2162EC026343CF89C93558 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A376EBB052F7455689D04584 /* QuartzCore.framework */; };
 		133A944284EF480F907D798A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C616DC81781B4B97B987DF6F /* CoreImage.framework */; };
 		3A41A642E28A4246AE3E6A7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B239A377966487AB7F463FB /* AudioToolbox.framework */; };
+		B71679D886A6424EBF67081D /* CDVStripe.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CBA3AE750242C6BD53E427 /* CDVStripe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		A376EBB052F7455689D04584 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		C616DC81781B4B97B987DF6F /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreImage.framework"; path = "System/Library/Frameworks/CoreImage.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		9B239A377966487AB7F463FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		87CBA3AE750242C6BD53E427 /* CDVStripe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStripe.m"; path = "com.telerik.stripe/CDVStripe.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		78450C5C30EF4395B9EE78A2 /* CDVStripe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStripe.h"; path = "com.telerik.stripe/CDVStripe.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +301,8 @@
 				8467AE0BBE19486C8F87FA58 /* CDVBarcodeScanner.mm */,
 				3F47CFC517FB485AB98583EA /* zxing-all-in-one.cpp */,
 				3E8EC610C49E49EB929E824F /* zxing-all-in-one.h */,
+				87CBA3AE750242C6BD53E427 /* CDVStripe.m */,
+				78450C5C30EF4395B9EE78A2 /* CDVStripe.h */,
 			);
 			name = Plugins;
 			path = SplitShop/Plugins;
@@ -494,6 +499,7 @@
 				6201A74CC0C44C4E8DBDBE45 /* UIWebViewExtension.m in Sources */,
 				B126EA18D515447FB837C3FA /* CDVBarcodeScanner.mm in Resources */,
 				5142FF1A624144A1B0B119A1 /* zxing-all-in-one.cpp in Resources */,
+				B71679D886A6424EBF67081D /* CDVStripe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
