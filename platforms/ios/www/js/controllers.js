@@ -130,6 +130,11 @@ angular.module('app.controllers', [])
 	console.log('sessionid', $scope.sessionId);
 	console.log($stateParams);
 
+	//slide menu
+	$scope.addToCart = function() {
+		alert('add to cart');
+	};
+
 	$scope.product_results = [];
 	$scope.searchQueryString = function (SearchQuery) {
 		console.log(SearchQuery);
@@ -140,12 +145,14 @@ angular.module('app.controllers', [])
 	}
 
 	$scope.barCodeNumber = '';
+	$scope.date;
 	$scope.click = function() {
 		var promise = appService.scanBarcode();
 		promise.then(
 				function(result) {
 					if (result.error == false) {
 						var d = new Date();
+						$scope.date = d.toUTCString();
 						$scope.barCodeNumber = '<table>' +
 								'<tbody>' +
 								'<tr><td>Timestamp:</td><td>&nbsp;</td><td>' + d.toUTCString() + '</td></tr>' +
