@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81084494-c006-45e2-9fa6-7b8786c900f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/SplitShop/SplitShop-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/SplitShop/SplitShop-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/credentials.js" afterPath="$PROJECT_DIR$/www/js/credentials.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/newSession.html" afterPath="$PROJECT_DIR$/www/templates/newSession.html" />
     </list>
     <ignored path="SplitShop 9.02.12 PM.iws" />
@@ -29,7 +26,7 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-1.25">
               <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
               <folding />
             </state>
@@ -39,8 +36,8 @@
       <file leaf-file-name="newSession.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/newSession.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35422343">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.108991824">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -69,7 +66,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.11111">
+            <state vertical-scroll-proportion="-153.88889">
               <caret line="334" column="3" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
               <folding />
             </state>
@@ -743,14 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/credentials.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -767,9 +756,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.11111">
+        <state vertical-scroll-proportion="-153.88889">
           <caret line="334" column="3" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
           <folding />
         </state>
@@ -777,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/newSession.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35422343">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.108991824">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding />
         </state>
       </provider>
