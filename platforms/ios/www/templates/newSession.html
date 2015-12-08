@@ -1,12 +1,13 @@
 <ion-view style="" title="Shopping">
     <div class="bar bar-subheader">
-      <h2 class="title">{{ currentSession.name }}</h2>
         <button class="button button-energized icon ion-ios-personadd" ng-click="addPeople()"></button>
+        <h2 class="title">{{ currentSession.name }}</h2>
+        <button class="button button-energized icon ion-ios-cart" ng-click="goToCart()"></button>
     </div>
     
 
     <ion-content class="has-subheader" padding="'true'">
-        
+
         <div class = "row">
             <div class = "col text-left">
                 <form style="" class="list">
@@ -38,7 +39,7 @@
         </ion-list>
 
 
-        <a style="" class="button button-stable button-block " ng-click="goToCart()">Go to Cart</a>
+        <!--<a style="" class="button button-stable button-block " ng-click="goToCart()">Go to Cart</a>-->
         
         <form style="" class="list">
             <label style="" class="item item-input">

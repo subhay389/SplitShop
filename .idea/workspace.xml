@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81084494-c006-45e2-9fa6-7b8786c900f8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/newSession.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/newSession.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/newSession.html" afterPath="$PROJECT_DIR$/www/templates/newSession.html" />
     </list>
     <ignored path="SplitShop 9.02.12 PM.iws" />
@@ -26,8 +28,8 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="88" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -36,8 +38,8 @@
       <file leaf-file-name="newSession.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/newSession.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.108991824">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.5585831">
+              <caret line="41" column="103" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -66,8 +68,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-153.88889">
-              <caret line="334" column="3" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
+            <state vertical-scroll-proportion="-96.22222">
+              <caret line="424" column="8" selection-start-line="424" selection-start-column="8" selection-end-line="424" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -86,8 +88,8 @@
       <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="51" />
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -748,34 +750,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/cart.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="51" />
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="88" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-153.88889">
-          <caret line="334" column="3" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
+        <state vertical-scroll-proportion="-96.22222">
+          <caret line="424" column="8" selection-start-line="424" selection-start-column="8" selection-end-line="424" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/newSession.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.108991824">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.5585831">
+          <caret line="41" column="103" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="103" />
           <folding />
         </state>
       </provider>
