@@ -1,5 +1,6 @@
 <ion-view style="" title="Dashboard">
     <ion-content class="has-header" padding="'true'">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <form style="" class="list"></form>
         <a style="" class="button button-stable button-block" ng-click="showSessionPopup()">Start New Session</a>
 

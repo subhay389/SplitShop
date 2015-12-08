@@ -63,7 +63,7 @@ angular.module('app.controllers', [])
 	
 
 	$scope.showSessionPopup = function() {
-		$scope.session = {}
+		$scope.session = {};
 
 		// An elaborate, custom popup
 		var myPopup = $ionicPopup.show({
@@ -114,11 +114,19 @@ angular.module('app.controllers', [])
 	Parse.getAllSessions($scope.userId).then(function(data) {
 		console.log('all sessions', data.results);
 		$scope.sessions = data.results;
-	})
+	});
 
 	//Go to Specific session details
 	$scope.GotoSessiondetails = function (objectId) {
 		$state.go('tabsController.newSession', { sessionId: objectId })
+	};
+
+	$scope.doRefresh = function(){
+		Parse.getAllSessions($scope.userId).then(function(data) {
+			console.log('all sessions', data.results);
+			$scope.sessions = data.results;
+		});
+		$scope.$broadcast('scroll.refreshComplete');
 	}
 
 
@@ -395,6 +403,13 @@ angular.module('app.controllers', [])
 .controller('cartCtrl', function($scope, $stateParams, Parse) {
 	console.log($stateParams);
 	$scope.sessionId = $stateParams.sessionId;
+
+	$scope.edit = function(item) {
+		alert('edit');
+	};
+	$scope.delete = function(item) {
+		alert('delete');
+	};
 
 	Parse.getSessionbyId($scope.sessionId).then(function(response) {
 		$scope.cartItems = response.cartItems;
