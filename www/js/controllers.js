@@ -154,6 +154,11 @@ angular.module('app.controllers', [])
 								'<tr><td>Text:</td><td>&nbsp;</td><td>' + result.result.cancelled + '</td></tr>' +
 								'</tbody>' +
 								'</table>';
+
+						SemanticsService.getProductbyUPC(result.result.text).then(function (response) {
+							console.log("product search", response);
+							$scope.product_results = response.data.results;
+						})
 					}
 					else {
 						$scope.barCodeNumber = '<b>ERROR</b>: ' + result;
@@ -164,7 +169,14 @@ angular.module('app.controllers', [])
 				},
 				function(result) {
 					$scope.barCodeNumber = '' + result.error;
-				});
+				})
+
+				//function(result) {
+				//	SemanticsService.getProductbyUPC(result.result.text).then(function (response) {
+				//		console.log("product search", response);
+				//		$scope.product_results = response.data.results;
+				//	})
+
 	};
 
 	$scope.clear = function() {
