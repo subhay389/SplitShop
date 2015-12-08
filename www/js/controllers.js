@@ -387,13 +387,17 @@ angular.module('app.controllers', [])
 			          			"quantity": $scope.item.quantity
 			          		};
 
-			          		Parse.addToCart(productInfo, $scope.sessionId).then(function(response) {
-			          			console.log(response);
-			          			var alertPopup = $ionicPopup.alert({
-								     title: "Hurray",
-								     template: 'Item is added to your cart'
-								});
-			          		});
+			          		if (productInfo.price != null) {
+			          			Parse.addToCart(productInfo, $scope.sessionId).then(function(response) {
+				          			console.log(response);
+				          			var alertPopup = $ionicPopup.alert({
+									     title: "Hurray",
+									     template: 'Item is added to your cart'
+									});
+				          		});
+			          		}
+
+			          		
 		          		})
 		          		
 		          	};
@@ -414,7 +418,7 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('cartCtrl', function($scope, $stateParams, Parse) {
+.controller('cartCtrl', function($scope, $stateParams, Parse, $state) {
 	console.log($stateParams);
 	$scope.sessionId = $stateParams.sessionId;
 
@@ -426,15 +430,34 @@ angular.module('app.controllers', [])
 	};
 
 	Parse.getSessionbyId($scope.sessionId).then(function(response) {
+		$scope.total = 0;
 		$scope.cartItems = response.cartItems;
-		for (item in $scope.cartItems) {
-			console.log($scope.cartItems[item]);
+		for (index in $scope.cartItems) {
+			var item = $scope.cartItems[index];
+			$scope.total += item.price * item.quantity;
+
 		}
+		console.log($scope.total.toFixed(2));
 	})
+
+	$scope.gotoCheckout = function() {
+		$state.go('tabsController.checkout', { "sessionId": $scope.sessionId })
+	}
 
 })
    
-.controller('checkoutCtrl', function($scope) {
+.controller('checkoutCtrl', function($scope, Parse, $stateParams) {
+	$scope.sessionId = $stateParams.sessionId;
 
+	Parse.getSessionbyId($scope.sessionId).then(function(response) {
+		$scope.total = 0;
+		$scope.cartItems = response.cartItems;
+		for (index in $scope.cartItems) {
+			var item = $scope.cartItems[index];
+			$scope.total += item.price * item.quantity;
+
+		}
+		console.log($scope.total.toFixed(2));
+	})
 });
  

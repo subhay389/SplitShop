@@ -1,19 +1,24 @@
 <ion-view style="" title="Cart">
     <ion-content class="has-header" padding="'true'">
+    	<h2> Review Your Items </h2>
         <ion-list style="">
             <ion-item style="" ng-repeat="item in cartItems" class = "item-remove-animate">
 
-                <ion-option-button class="button-calm"
-                                   ng-click="edit(item)">
+                <ion-option-button class="button-calm" ng-click="edit(item)">
                     Edit
                 </ion-option-button>
-                <ion-option-button class="button-assertive"
-                                   ng-click="remove(item)">
+                <ion-option-button class="button-assertive" ng-click="remove(item)">
                     Remove
-                </ion-option-button>{{ item }}
+                </ion-option-button>
+
+                {{ item.name }}
+                <span class="item-note">
+	              {{ item.quantity }} * {{ item.price }}{{ item.price_currency }}
+	            </span>
+
             </ion-item>
         </ion-list>
-        <div style="height: 100px;" class="spacer"></div>
-        <a style="" class="button button-stable button-block " href="#tabs/Checkout">Check Out</a>
+        
+        <a style="" class="button button-stable button-block" ng-click="gotoCheckout()">Check Out</a>
     </ion-content>
 </ion-view>
