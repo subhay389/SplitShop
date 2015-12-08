@@ -150,7 +150,7 @@ angular.module('app.routes', [])
       
         
     .state('tabsController.checkout', {
-      url: '/Checkout',
+      url: '/Checkout/:sessionId',
       views: {
         'tab1': {
           templateUrl: 'templates/checkout.html',
