@@ -26,6 +26,12 @@ angular.module('app.controllers', [])
 		$scope.objectId = data.data.results[0].objectId;
 	});
 
+
+	//slide menu
+	$scope.delete = function() {
+		alert('Delete');
+	};
+
 	$scope.createSession = function() {
 		var sessionInfo = {
 			name: "Untitled Session",
