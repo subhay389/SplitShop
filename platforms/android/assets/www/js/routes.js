@@ -86,6 +86,12 @@ angular.module('app.routes', [])
           }
         }
       })
+
+      // .state('itemDetail', {
+      //   url: '/itemdetail/:sem3_id',
+      //   templateUrl: 'templates/itemDetail.html',
+      //   controller: 'itemDetailCtrl'
+      // })
       
         
     .state('signup', {
@@ -98,40 +104,60 @@ angular.module('app.routes', [])
     
       
         
-    .state('shopping', {
+
+    .state('tabsController.shopping', {
       url: '/shopping',
-      templateUrl: 'templates/shopping.html',
-      controller: 'shoppingCtrl'
+      views: {
+        'tab1': {
+          templateUrl: 'templates/shopping.html',
+          controller: 'shoppingCtrl'
+        }
+      }
+
+    })
+
+      
+    
+      
+        
+    .state('tabsController.itemDetail', {
+      url: '/itemdetail/:sessionId/:sem3_id',
+      views: {
+        'tab1': {
+          templateUrl: 'templates/itemDetail.html',
+          controller: 'itemDetailCtrl'
+        }
+      }
     })
         
       
     
       
         
-    .state('itemDetail', {
-      url: '/itemdetail',
-      templateUrl: 'templates/itemDetail.html',
-      controller: 'itemDetailCtrl'
+    .state('tabsController.cart', {
+      url: '/cart/:sessionId',
+      views: {
+        'tab1': {
+          templateUrl: 'templates/cart.html',
+          controller: 'cartCtrl'
+        }
+      }
+
     })
         
       
     
       
         
-    .state('cart', {
-      url: '/cart',
-      templateUrl: 'templates/cart.html',
-      controller: 'cartCtrl'
-    })
-        
-      
-    
-      
-        
-    .state('checkout', {
-      url: '/Checkout',
-      templateUrl: 'templates/checkout.html',
-      controller: 'checkoutCtrl'
+    .state('tabsController.checkout', {
+      url: '/Checkout/:sessionId',
+      views: {
+        'tab1': {
+          templateUrl: 'templates/checkout.html',
+          controller: 'checkoutCtrl'
+        }
+      }
+
     })
         
       

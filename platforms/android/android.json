@@ -599,7 +599,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<string name=\"stripe_api_key\">pk_test_H1GUERDfOl0L4tLwJp96PCaN</string>",
+                            "xml": "<string name=\"stripe_api_key\">sk_test_pc3oLPP5oFs9Zk4nwg0NmCr3</string>",
                             "count": 1
                         }
                     ]
@@ -638,7 +638,7 @@
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         },
         "com.telerik.stripe": {
-            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN",
+            "API_KEY": "sk_test_pc3oLPP5oFs9Zk4nwg0NmCr3",
             "PACKAGE_NAME": "com.ionicframework.splitshop531492"
         }
     },

@@ -80,6 +80,64 @@ angular.module('app.services', [])
                 });
         },
 
+        getAllCollaborators: function(sessionId) {
+            return $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
+        },
+
+        removeSession: function(sessionId) {
+            return $http.delete(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
+        },
+
+        moveSessiontoHistory: function(sessionId, totalcharge) {
+            $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    _response = _response.data;
+                    var data = {
+                        "cartItems": _response.cartItems,
+                        "collaborators": _response.collaborators,
+                        "name": _response.name,
+                        "owner": _response.owner,
+                        "owner_objectId": _response.owner_objectId,
+                        "original_objectId": _response.objectId,
+                        "original_createdAt": _response.createdAt,
+                        "total_expense": totalcharge
+                    };
+
+                    $http.delete(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                        .then(function(_response) {
+                            console.log(_response);
+                            return _response;
+                    });
+                    return $http.post(baseURL + "classes/session_history/", data, defaultSettings)
+                        .then(function(response) {
+                            console.log("moving", response);
+                            return response;
+                        })
+                });
+        },
+
+        getSessionsfromHistory: function(UserId) {
+            var params = {
+                "owner": UserId
+            };
+
+            return $http.get(baseURL + "classes/session_history?where=" + JSON.stringify(params), defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+
         //Users
     	addUser: function(UserData) {
     		return $http.post(baseURL + "classes/person", UserData, defaultSettings)

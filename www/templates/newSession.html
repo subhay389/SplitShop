@@ -1,6 +1,6 @@
 <ion-view style="" title="Shopping">
     <div class="bar bar-subheader">
-        <button class="button button-energized icon ion-ios-personadd" ng-click="addPeople()"></button>
+        <button class="button button-energized icon ion-ios-personadd" ng-click="openPopover($event)"></button>
         <h2 class="title">{{ currentSession.name }}</h2>
         <button class="button button-energized icon ion-ios-cart" ng-click="goToCart()"></button>
     </div>
@@ -49,7 +49,7 @@
             <button type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" class="button button-stable button-block " ng-click="searchPeople(userEmail)">Search</button>
         </form>
         <ion-list>
-            <ion-item ng-click="addUser(searchPeopleresult.email)">
+            <ion-item on-drag-right="onDragRight()" ng-click="addUser(searchPeopleresult.email)">
                 {{ searchPeopleresult.name }}
             </ion-item>
         </ion-list>
