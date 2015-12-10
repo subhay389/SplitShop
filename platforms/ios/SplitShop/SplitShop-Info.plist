@@ -89,9 +89,9 @@
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSMainNibFile</key>
-    <string/>
+    <string></string>
     <key>NSMainNibFile~ipad</key>
-    <string/>
+    <string></string>
     <key>UIRequiresFullScreen</key>
     <true/>
     <key>UILaunchImages</key>
@@ -211,6 +211,6 @@
       </dict>
     </array>
     <key>StripeApiKey</key>
-    <string>pk_test_H1GUERDfOl0L4tLwJp96PCaN</string>
+    <string>sk_test_pc3oLPP5oFs9Zk4nwg0NmCr3</string>
   </dict>
 </plist>

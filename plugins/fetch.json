@@ -92,12 +92,12 @@
     "com.telerik.stripe": {
         "source": {
             "type": "git",
-            "url": "https://github.com/Telerik-Verified-Plugins/Stripe.git",
+            "url": "https://github.com/Telerik-Verified-Plugins/Stripe",
             "subdir": "."
         },
         "is_top_level": true,
         "variables": {
-            "API_KEY": "pk_test_H1GUERDfOl0L4tLwJp96PCaN"
+            "API_KEY": "sk_test_pc3oLPP5oFs9Zk4nwg0NmCr3"
         }
     }
 }

@@ -1,3 +1,38 @@
 <ion-view style="" title="Checkout">
-    <ion-content class="has-header" padding="'true'"></ion-content>
+    <ion-content class="has-header" padding="'true'">
+
+    <form name="paymentForm" class="padding" ng-submit="makeStripePayment(card)">
+
+        <label class="item item-input item-stacked-label padding">
+          Card Type:
+          <select ng-model="card.cardType" ng-options="type for type in ['Visa', 'American Express', 'MasterCard']"></select>
+        </label>
+          
+        <!-- <label class="item item-input item-stacked-label padding">
+          Charge Amount
+          <input type="text" ng-model="card.amount" name="cardAmount" style="height:30px;border:1px solid grey; padding-left:10px" />
+        </label> -->
+          
+        <label class="item item-input item-stacked-label padding">
+          Card Number
+          <input type="text" ng-model="card.number" name="cardNumber" cc-number cc-type="card.cardType" style="height:30px;border:1px solid grey; padding-left:10px" />
+        </label>
+        <label class="item item-input item-stacked-label padding">
+          Card CVC
+          <input type="text" ng-model="card.cvc" cc-type="cardNumber.$ccType"
+           style="height:30px;border:1px solid grey; padding-left:10px"/>
+        </label>
+        <label class="item item-input item-stacked-label padding">
+          Expiration Date:
+          <div>
+            <input ng-model="card.exp_month" cc-exp-month style="height:30px;width:50px;border:1px solid grey; text-align:center" />
+            <input style="height:30px;width:50px;border:1px solid grey; text-align:center"/>
+          </div>
+        </label>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">MAKE PAYMENT</button>
+        </div>
+        <!-- ng-disabled="paymentForm.$invalid" -->
+    </form>
+   </ion-content>
 </ion-view>

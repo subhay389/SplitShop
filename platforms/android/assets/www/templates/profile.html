@@ -1,5 +1,13 @@
-<ion-view style="" title="Profile">
+<ion-view style="" title={{user.name}}>
     <ion-content class="has-header" padding="'true'">
-    	{{ user | json }}
+        <div class = "row">
+            <div class = "col text-center">
+                <img src= {{user.photo}} height="200" width="200"><br>
+                <div>
+                    Email Id: {{user.email}}
+                </div>
+            </div>
+        </div>
+        
     </ion-content>
 </ion-view>

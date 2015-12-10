@@ -1,4 +1,9 @@
 <ion-view style="" title="Shopping">
+    <ion-nav-bar>
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content class="has-header" padding="'true'">
         <form style="" class="list">
             <label style="" class="item item-input">
@@ -41,10 +46,10 @@
 
         <button style="" class="button button-stable button-block " ng-click = search(itemName)>Search</button>
         <ion-list style="">
-            <ion-item style="" href="#/itemdetail" menu-close="">Item 1</ion-item>
-            <ion-item style="" href="#/itemdetail" menu-close="">Item 2</ion-item>
-            <ion-item style="" href="#/itemdetail" menu-close="">Item 3</ion-item>
+            <ion-item style="" href="#tabs/itemdetail" menu-close="">Item 1</ion-item>
+            <ion-item style="" href="#tabs/itemdetail" menu-close="">Item 2</ion-item>
+            <ion-item style="" href="#tabs/itemdetail" menu-close="">Item 3</ion-item>
         </ion-list>
-        <a style="" class="button button-stable button-block " href="#/cart">Go to Cart</a>
+        <a style="" class="button button-stable button-block " href="#tabs/cart">Go to Cart</a>
     </ion-content>
 </ion-view>

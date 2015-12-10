@@ -35,14 +35,22 @@ angular.module('app.controllers', [])
 
 
 	//slide menu
-	$scope.delete = function() {
+	$scope.delete = function(sessionId) {
 		var confirmPopup = $ionicPopup.confirm({
 			 title: 'Alert',
 			 template: 'Are you sure you want to delete this session?'
 		});
 		confirmPopup.then(function(res) {
 			if(res) {
-			console.log('You are sure');
+				console.log('You are sure');
+				Parse.removeSession(sessionId).then(function(response){
+					console.log("Deleted", response);
+
+					Parse.getAllSessions($scope.userId).then(function(data) {
+						console.log('all sessions', data.results);
+						$scope.sessions = data.results;
+					});
+				})
 			} else {
 			console.log('You are not sure');
 			}
@@ -135,7 +143,16 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('historyCtrl', function($scope) {
+.controller('historyCtrl', function($scope, Parse, FacebookAuth) {
+	FacebookAuth.currentUser().then(function(response){
+		console.log('user in PROFILE', response);
+		$scope.userId = response.data.results[0].fb_id;
+
+		Parse.getSessionsfromHistory($scope.userId).then(function(response) {
+			console.log(response);
+			$scope.sessions = response.results;
+		});
+	});
 
 })
    
@@ -146,7 +163,7 @@ angular.module('app.controllers', [])
 	});
 })
       
-.controller('newSessionCtrl', function($scope, Parse, SemanticsService, $ionicPopup, $state, $stateParams, FacebookAuth, $rootScope, $cordovaBarcodeScanner, $ionicPlatform, appService) {
+.controller('newSessionCtrl', function($scope, Parse, SemanticsService, $ionicPopup, $state, $stateParams, FacebookAuth, $rootScope, $cordovaBarcodeScanner, $ionicPlatform, appService, $ionicPopover) {
 	FacebookAuth.currentUser().then(function(response){
 		console.log('user in PROFILE', response);
 		$scope.user = response.data.results[0];
@@ -159,7 +176,12 @@ angular.module('app.controllers', [])
 	Parse.getSessionbyId($scope.sessionId).then(function(response) {
 		console.log("currentSession", response);
 		$scope.currentSession = response;
-	})
+	});
+
+	// Parse.getAllCollaborators($scope.sessionId).then(function(response) {
+	// 	console.log("current collaborators", response);
+	// 	$scope.collaborators = response.data.collaborators;
+	// })
 
 	$scope.product_results = [];
 	$scope.searchQueryString = function (SearchQuery) {
@@ -323,12 +345,50 @@ angular.module('app.controllers', [])
 			     title: "Oh uh!",
 			     template: 'Something is wrong.'
 			});
-		}	
+		}
+		
 	}
 
 	$scope.addPeople = function(item) {
 		alert('add');
 	};
+
+	$scope.onDragRight = function(item) {
+		alert('dragged');
+	};
+
+	var template = '<ion-popover-view><ion-header-bar> <h1 class="title"></h1>' +
+					'</ion-header-bar> <ion-list>' + 
+					'<ion-item ng-repeat="person in collaborators"> {{ person.email }} </ion-item></ion-list>' + 
+					'<ion-content> </ion-content></ion-popover-view>';
+
+	  $scope.popover = $ionicPopover.fromTemplate(template, {
+	    scope: $scope
+	  });
+
+	$scope.openPopover = function($event) {
+	    $scope.popover.show($event);
+
+	    Parse.getAllCollaborators($scope.sessionId).then(function(response) {
+			console.log("current collaborators", response);
+			$scope.collaborators = response.data.collaborators;
+		})	
+	  };
+	  $scope.closePopover = function() {
+	    $scope.popover.hide();
+	  };
+	  //Cleanup the popover when we're done with it!
+	  $scope.$on('$destroy', function() {
+	    $scope.popover.remove();
+	  });
+	  // Execute action on hide popover
+	  $scope.$on('popover.hidden', function() {
+	    // Execute action
+	  });
+	  // Execute action on remove popover
+	  $scope.$on('popover.removed', function() {
+	    // Execute action
+	  });
 
 
 })	
@@ -437,6 +497,7 @@ angular.module('app.controllers', [])
 			$scope.total += item.price * item.quantity;
 
 		}
+		$scope.total = $scope.total.toFixed(2);
 		console.log($scope.total.toFixed(2));
 	})
 
@@ -446,18 +507,84 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('checkoutCtrl', function($scope, Parse, $stateParams) {
+.controller('checkoutCtrl', function($scope, Parse, $stateParams, $state) {
 	$scope.sessionId = $stateParams.sessionId;
 
-	Parse.getSessionbyId($scope.sessionId).then(function(response) {
-		$scope.total = 0;
-		$scope.cartItems = response.cartItems;
-		for (index in $scope.cartItems) {
-			var item = $scope.cartItems[index];
-			$scope.total += item.price * item.quantity;
 
-		}
-		console.log($scope.total.toFixed(2));
-	})
+	
+
+	$scope.cardType = {};
+    $scope.card = {};
+
+    $scope.makeStripePayment = makeStripePayment;
+
+    Parse.getSessionbyId($scope.sessionId).then(function(response) {
+			$scope.total = 0;
+			$scope.cartItems = response.cartItems;
+			for (index in $scope.cartItems) {
+				var item = $scope.cartItems[index];
+				$scope.total += item.price * item.quantity;
+
+			}
+			$scope.total = $scope.total.toFixed(2);
+		});
+
+
+    /**
+     */
+    function makeStripePayment(_cardInformation) {
+
+      if (!window.stripe) {
+        alert("stripe plugin not installed");
+        return;
+      }
+
+      if (!_cardInformation) {
+        alert("Invalid Card Data");
+        return;
+      }
+
+
+      //Calculate total amount to be charged and Charge with valid card info
+	    Parse.getSessionbyId($scope.sessionId).then(function(response) {
+			$scope.total = 0;
+			$scope.cartItems = response.cartItems;
+			for (index in $scope.cartItems) {
+				var item = $scope.cartItems[index];
+				$scope.total += item.price * item.quantity;
+
+			}
+			console.log($scope.total.toFixed(2));
+			$scope.total = $scope.total.toFixed(2);
+
+			//Charge user
+			stripe.charges.create({
+	          // amount is in cents so * 100
+	          amount: $scope.total * 100,
+	          currency: 'usd',
+	          card: {
+	            "number": '4242424242424242',
+	            "exp_month": '11',
+	            "exp_year": '21',
+	            "cvc": '123',
+	            "name": "Ashok Tamang"
+	          },
+	          description: "Stripe Test Charge"
+	        },
+	        function(response) {
+	          console.log(JSON.stringify(response, null, 2));
+	          alert(JSON.stringify(response, null, 2));
+	        },
+	        function(response) {
+	          alert(JSON.stringify(response))
+	        });
+	    });
+
+	    Parse.moveSessiontoHistory($scope.sessionId, $scope.total).then(function(response) {
+	    	console.log("movingtohistory", response);
+	    	$state.go('tabsController.dashboard', {}, {reload: true});
+	    })
+      
+	};
 });
  

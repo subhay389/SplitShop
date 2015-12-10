@@ -14,6 +14,7 @@ angular.module('app.services', [])
 
 
     return {
+        //Sessions
     	createGroup: function(data) {
     		return $http.post(baseURL + "classes/groups", data, defaultSettings)
     			.then(function(_response) {
@@ -22,6 +23,64 @@ angular.module('app.services', [])
     			});
     	},
 
+        getAllSessions: function(UserId) {
+            var params = {
+                "owner": UserId
+            }
+            return $http.get(baseURL + "classes/groups?where=" + JSON.stringify(params), defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        getSessionbyId: function(sessionId) {
+            return $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        addUsertoSession: function(userInfo, sessionId) {
+            var data = {
+                "collaborators": {
+                    "__op":"AddUnique",
+                    "objects": [userInfo]
+                }
+            };
+
+            return $http.put(baseURL + "classes/groups/" + sessionId, data, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        addToCart: function(productInfo, sessionId) {
+            var data = {
+                "cartItems": {
+                    "__op":"AddUnique",
+                    "objects": [productInfo]
+                }
+            };
+
+            return $http.put(baseURL + "classes/groups/" + sessionId, data, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response.data;
+                });
+        },
+
+        getItemsfromCart: function(sessionId) {
+            return $http.get(baseURL + "classes/groups/" + sessionId, defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
+        },
+
+        //Users
     	addUser: function(UserData) {
     		return $http.post(baseURL + "classes/person", UserData, defaultSettings)
     			.then(function(_response) {
@@ -39,20 +98,22 @@ angular.module('app.services', [])
     				console.log(_response);
     				return _response;
     			});
-    	}
+    	},
+
+        getUserbyEmail: function(userEmail) {
+            var params = {
+                "email": userEmail
+            }
+            return $http.get(baseURL + "classes/person?where=" + JSON.stringify(params), defaultSettings)
+                .then(function(_response) {
+                    console.log(_response);
+                    return _response;
+                });
+        },
     };
 })
 
 .service('FacebookAuth', function($http, $state, $q, $cordovaFacebook, Parse){
-	var baseURL = 'http://webservices.amazon.com/onca/xml?' +
-			'Service=AWSECommerceService' +
-			'&Operation=ItemLookup' +
-			'&ResponseGroup=Large' +
-			'&SearchIndex=All' +
-			'&IdType=UPC';
-	var amazonCredentials =   '&AWSAccessKeyId=AKIAJUA2Y3JXDKXJLR5A' +
-								'&AssociateTag=[Your_AssociateTag]'
-
 	var login = function() {
 		return $cordovaFacebook.login(["public_profile", "email"])
             .then(function (success) {
@@ -153,6 +214,47 @@ angular.module('app.services', [])
 		}
 		return deferred.promise;
 	};
-});
+})
 
+
+.factory('SemanticsService', function($http){
+
+    var url = "https://api.semantics3.com/test/v1/products?q=";
+    var queryString = '{"upc": "1045440701246"}';
+    var options = {
+        headers: SEMANTICS_HEADER_CREDENTIALS
+    };
+    
+    return {
+        getProductbyUPC : function(upcId) {
+            var queryString = {
+                "upc": upcId
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
+        },
+
+        getProductbyKeyword : function(searchQuery) {
+            var queryString = {
+                "search": searchQuery
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
+        },
+
+        getProductbySem3Id : function(sem3Id) {
+            var queryString = {
+                "sem3_id": sem3Id
+            };
+            return $http.get(url + JSON.stringify(queryString), options).then(function(data) {
+                console.log('results', data);
+                return data;
+            })
+        }
+    };
+})
 

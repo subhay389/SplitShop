@@ -5,13 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngCordova', 'ngCordova'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngCordova', 'ngCordova', 'credit-cards'])
 
-//    'ionic.service.core',
-//    'ionic.service.push',
-//    'ionic.service.deploy'
 
-    .run(function($ionicPlatform) {
+
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -22,45 +20,44 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
-})
+    
+    // Stripe Logic
+    console.log("window.stripe ", window.stripe);
+      //alert(window.stripe);
 
-//.run(function($rootScope, $ionicDeploy, $ionicPlatform, $cordovaStatusbar) {
-//
-//  $ionicPlatform.ready(function() {
-//
-//    // Hide the accessory bar by default
-//    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-//      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-//    }
-//
-//    // Color the iOS status bar text to white
-//    if (window.StatusBar) {
-//      $cordovaStatusbar.overlaysWebView(true);
-//      $cordovaStatusBar.style(1); //Light
-//    }
-//
-//    // Default update checking
-//    $rootScope.updateOptions = {
-//      interval: 2 * 60 * 1000
-//    };
-//
-//    // Watch Ionic Deploy service for new code
-//    $ionicDeploy.watch($rootScope.updateOptions).then(function() {}, function() {}, function(hasUpdate) {
-//      $rootScope.lastChecked = new Date();
-//      console.log('WATCH RESULT', hasUpdate);
-//    });
-//  });
-//})
-//
-//.config(['$ionicAppProvider', function($ionicAppProvider) {
-//  // Identify app
-//  $ionicAppProvider.identify({
-//    // The App ID (from apps.ionic.io) for the server
-//    app_id: 'YOUR_APP_ID',
-//    // The public API key all services will use for this app
-//    api_key: 'YOUR_API_KEY',
-//    // The GCM project ID (project number) from your Google Developer Console (un-comment if used)
-//    //gcm_id: 'GCM_ID',
-//  });
-//}]);
+      //createCharge()
+    });
+
+    function testStripe() {
+      // https://stripe.com/docs/api#list_customers
+      stripe.customers.list({
+          limit: "2" // both value as string and number are supported
+        },
+        function(response) {
+          console.log(JSON.stringify(response, null, 2));
+
+          createCustomer();
+        },
+        function(response) {
+          alert(JSON.stringify(response))
+        } // error handler
+      );
+    }
+
+
+    function createCustomer() {
+      // creating a customer: https://stripe.com/docs/api#create_customer
+      stripe.customers.create({
+          description: "Ashok Tamang",
+          email: "ashok.tamang@bison.howard.edu"
+        },
+        function(response) {
+          alert("Customer created:\n\n" + JSON.stringify(response))
+          console.log(JSON.stringify(response, null, 2))
+        },
+        function(response) {
+          alert(JSON.stringify(response))
+        } // error handler
+      );
+    }
+});
