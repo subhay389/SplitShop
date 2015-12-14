@@ -1,5 +1,5 @@
 # SplitShop
- An App for online [Amazon] shopping and splitting money with friends.
+ An App for online shopping and splitting money with friends.
 
 ##Contributors
 * Ashok Tamang
@@ -9,8 +9,10 @@
 ## Using This Project
 * `git clone https://github.com/subhay389/SplitShop.git`
 * `ionic state restore`
+* `ionic platform add android` 
 * `ionic run android` 
-* * `ionic run android` 
+* `ionic platform add ios` 
+* `ionic run ios` 
 
 ## Issues
 #### Installing Plugin for Android
