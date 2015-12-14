@@ -1,6 +1,8 @@
 <ion-view style="" title="Checkout">
     <ion-content class="has-header" padding="'true'">
 
+    Your total is {{ total }}
+
     <form name="paymentForm" class="padding" ng-submit="makeStripePayment(card)">
 
         <label class="item item-input item-stacked-label padding">

@@ -16,7 +16,7 @@
                 <ion-item ng-repeat="session in sessions" ng-click="GotoSessiondetails(session.objectId)" class="item-remove-animate">
                     {{ session.name }}
                     <ion-option-button class="button-assertive"
-                                       ng-click="delete(item)">
+                                       ng-click="delete(session.objectId)">
                         Delete
                     </ion-option-button>
 

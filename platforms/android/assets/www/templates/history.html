@@ -1,10 +1,17 @@
 <ion-view style="" title="History">
     <ion-content class="has-header" padding="'true'">
-        <form style="" class="list">
-            <label style="" class="item item-select">
-                <span class="input-label">Select</span>
-                <select></select>
-            </label>
-        </form>
+    	<div class="item item-divider">
+		    Your Recent Sessions
+		 </div>
+
+        <ion-list>
+        	<ion-item ng-repeat="session in sessions">
+        		{{ session.name }}
+        		<span class="item-note">
+	              Total ${{ session.total_expense }}
+	            </span>
+        	</ion-item>
+        	
+        </ion-list>
     </ion-content>
 </ion-view>

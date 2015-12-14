@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="/Users/rockndo/Documents/SplitShop/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="debug"><source path="/Users/rockndo/Documents/SplitShop/platforms/android/CordovaLib/src/debug/assets"/></dataSet></merger>
-=======
 <merger version="3"><dataSet config="main"><source path="/Users/subhay/Documents/SplitShop/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="debug"><source path="/Users/subhay/Documents/SplitShop/platforms/android/CordovaLib/src/debug/assets"/></dataSet></merger>
->>>>>>> 3b61b1d9eb1619f7c06a7edd82d3c926fafee718
